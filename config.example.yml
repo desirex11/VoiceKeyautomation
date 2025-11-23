@@ -1,0 +1,21 @@
+# Map keywords or phrases to one or more actions.
+# Supported action keys:
+# - shell: [command, args...] executed in the local shell
+# - shortcut: macOS Shortcuts automation name (optional args array)
+# - applescript: inline AppleScript string
+# - http: {url, method, json, headers}
+# Multiple actions can be combined per keyword.
+
+"hey computer":
+  shell: ["say", "Launching recording"]
+  shortcut: "Start Screen Recording"
+  http:
+    url: "https://hooks.example.com/action"
+    json:
+      event: "start_recording"
+
+"light mode":
+  applescript: 'tell application "System Events" to key code 144'  # toggles appearance on macOS
+
+"deploy app":
+  shell: ["/usr/local/bin/deploy.sh"]
