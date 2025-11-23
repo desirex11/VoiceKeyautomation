@@ -5,21 +5,11 @@ A lightweight Python listener that transcribes microphone audio, looks for confi
 <details>
 <summary>Quick start</summary>
 
-1. Install dependencies (or install the CLI):
-## Setup
-
 1. Install dependencies:
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    pip install -r requirements.txt
-   ```
-
-   To install the CLI with an entry point named `hiandbye` (so you can run it without `python`):
-   ```bash
-   pip install .
-   # or during development
-   pip install -e .
    ```
 
 2. Set an OpenAI API key when using Whisper:
@@ -30,12 +20,16 @@ A lightweight Python listener that transcribes microphone audio, looks for confi
 3. Run the listener:
    ```bash
    python keyword_listener.py --config config.yml --engine whisper
-   # or if installed as a CLI
-   hiandbye --config config.yml --engine whisper
    ```
 
    - Use `--engine sr` to run purely with SpeechRecognition/Sphinx.
    - Transcripts stay in memory only long enough to match keywords; only matched keywords are logged.
+
+   To use the Swift CLI wrapper (requires Xcode command-line tools and the Python dependencies above):
+   ```bash
+   cd swift-cli
+   swift run hiandbye-swift --config ../config.yml --engine whisper
+   ```
 
 </details>
 
